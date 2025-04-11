@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Verification Process - DonateNow</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+     <!-- Link to standard CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Navigation -->
+     <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors">
+                DonateNow
+            </a>
+            <div class="flex items-center space-x-2 sm:space-x-4">
+                <!-- Links styled directly -->
+                <a href="index.html" class="px-3 py-2 text-sm sm:text-base text-gray-600 hover:text-gray-900 transition-colors duration-200">Home</a>
+                <a href="browse.html" class="px-3 py-2 text-sm sm:text-base text-gray-600 hover:text-gray-900 transition-colors duration-200">Browse</a>
+                <a href="process.html" class="px-3 py-2 text-sm sm:text-base font-semibold text-blue-600">Process</a>
+                <a href="about.html" class="px-3 py-2 text-sm sm:text-base text-gray-600 hover:text-gray-900 transition-colors duration-200">About</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-4xl">
+         <article class="bg-white p-8 sm:p-10 rounded-lg shadow-lg border border-gray-200">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 border-b pb-4">Our Commitment to Verification</h1>
+            <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6">
+                <p>
+                    Building trust is the cornerstone of DonateNow. While this platform is currently a conceptual demonstration, the model it represents is founded on a commitment to rigorous vetting of the organizations we would list. The following steps outline the <strong class="font-semibold">intended principles and process</strong> for ensuring reliability and transparency.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-gray-800 pt-6 !mb-4">The Intended Verification Framework:</h2>
+                <ol class="list-decimal list-outside space-y-5 pl-6">
+                    <li>
+                        <strong class="font-semibold text-gray-800 block">Initial Research & Screening:</strong> We would proactively identify potential organizations based on alignment with humanitarian causes, public visibility, and preliminary checks using established third-party charity evaluators (like Charity Navigator, GuideStar, CharityWatch where applicable/available) and publicly accessible registration databases. Reputation and operational history are key initial considerations.
+                    </li>
+                    <li>
+                        <strong class="font-semibold text-gray-800 block">Direct Documentation Review:</strong> Our process would involve requesting or accessing essential documentation directly from potential listings. This includes proof of official registration (e.g., non-profit status, charity registration numbers), recent financial statements or reports (to assess financial health and allocation), and annual reports detailing programmatic activities and claimed impact.
+                    </li>
+                     <li>
+                        <strong class="font-semibold text-gray-800 block">Operational Transparency Check:</strong> We would evaluate the organization's online presence for clarity and transparency. This involves confirming the legitimacy and security of their official website, verifying contact information, and assessing the accessibility of information regarding their governance structure, leadership, and program activities. The availability of clear impact metrics or stories is also considered.
+                    </li>
+                     <li>
+                        <strong class="font-semibold text-gray-800 block">Verification of Donation Channels:</strong> A critical step involves confirming that the primary donation links or methods provided on their official website are accurate, secure, and directly controlled by the organization itself. We would prioritize official, secure payment gateways.
+                    </li>
+                     <li>
+                        <strong class="font-semibold text-gray-800 block">Regular Re-assessment & Updates:</strong> Verification is not a one-time event. Our intended model includes periodic reviews (e.g., annually) of listed organizations to ensure they continue to meet our standards, remain in good standing, and that their information (including donation links and the 'Last Verified' date shown on our platform) is current.
+                    </li>
+                </ol>
+
+                 <p class="text-sm text-gray-500 italic pt-6 border-t mt-8">
+                    <strong class="font-semibold text-gray-600">Important Disclaimer:</strong> The verification process described here outlines the intended, robust methodology for a fully operational DonateNow. As this site serves as a demonstration, the organizations listed are examples, and this level of comprehensive verification has <strong class="font-semibold">not</strong> been performed on each one for this demo. The "Verified" status and date shown are illustrative. Users are strongly encouraged to perform their own due diligence before donating to any organization.
+                </p>
+             </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+     <footer class="bg-gray-900 text-gray-400 py-10 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>© <span id="current-year-process"></span> DonateNow. All rights reserved.</p>
+            <p class="text-sm mt-2">A conceptual platform for transparent and informed giving.</p>
+            <p class="text-xs text-gray-500 mt-4">Disclaimer: This site is a demonstration. Verification process is illustrative. Favorites stored locally.</p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript File -->
+    <script src="js/main.js"></script>
+    <script>
+        // Update footer year for this page specifically
+        const yearSpanProcess = document.getElementById('current-year-process');
+        if (yearSpanProcess) {
+          yearSpanProcess.textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>

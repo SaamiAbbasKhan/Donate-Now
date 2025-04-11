@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About DonateNow - Our Mission</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+     <!-- Link to standard CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors">
+                DonateNow
+            </a>
+            <div class="flex items-center space-x-2 sm:space-x-4">
+                 <!-- Links styled directly -->
+                <a href="index.html" class="px-3 py-2 text-sm sm:text-base text-gray-600 hover:text-gray-900 transition-colors duration-200">Home</a>
+                <a href="browse.html" class="px-3 py-2 text-sm sm:text-base text-gray-600 hover:text-gray-900 transition-colors duration-200">Browse</a>
+                <a href="process.html" class="px-3 py-2 text-sm sm:text-base text-gray-600 hover:text-gray-900 transition-colors duration-200">Process</a>
+                <a href="about.html" class="px-3 py-2 text-sm sm:text-base font-semibold text-blue-600">About</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-4xl">
+        <article class="bg-white p-8 sm:p-10 rounded-lg shadow-lg border border-gray-200">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 border-b pb-4">Our Mission: Clarity in Compassion</h1>
+            <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6">
+                <p>
+                    In a world facing countless challenges, the desire to help is strong, yet navigating the landscape of charitable giving can often feel complex and uncertain. DonateNow was born from a simple idea: **to make impactful giving accessible, transparent, and confident.**
+                </p>
+                <p>
+                    Our core mission is to serve as a meticulously curated, trustworthy directory connecting compassionate donors like you with verified humanitarian organizations doing vital work across the globe. We cut through the noise, providing clear information and direct links, empowering you to support causes you believe in effectively.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-gray-800 pt-6 !mb-4">Why Choose DonateNow?</h2>
+                <ul class="list-disc list-outside space-y-3 pl-5">
+                    <li>
+                        <strong>Focus on Verification:</strong> Trust is non-negotiable. We are founded on the principle of verification, aiming to list organizations with proven track records and transparent operations. <a href="process.html" class="text-blue-600 hover:text-blue-700 font-medium">Learn about our intended process</a>.
+                    </li>
+                    <li>
+                        <strong>Direct Connection, Direct Impact:</strong> We are facilitators, not intermediaries. We guide you straight to the organizations' official donation platforms, ensuring 100% of your intended contribution (minus any processor fees charged by their platform) reaches them.
+                    </li>
+                    <li>
+                        <strong>Simplified Discovery:</strong> Find organizations working on specific causes (like medical aid, children's welfare, disaster relief) or operating in particular regions using our intuitive browsing and filtering tools.
+                    </li>
+                    <li>
+                        <strong>Empowering Informed Choices:</strong> We provide concise summaries, focus areas, and direct links, giving you the information needed to make giving decisions aligned with your values.
+                    </li>
+                </ul>
+
+                <h2 class="text-2xl font-semibold text-gray-800 pt-6 !mb-4">Our Vision for the Future</h2>
+                <p>
+                    We envision DonateNow becoming a cornerstone resource for global citizens seeking to make a meaningful difference. A place where the act of giving is demystified, amplified, and rooted in unwavering trust. We strive to foster a community dedicated to informed, impactful philanthropy, supporting the critical work of organizations changing lives every day.
+                </p>
+                <p class="text-sm text-gray-500 italic pt-6 border-t mt-8">
+                    Please remember: DonateNow is currently presented as a conceptual demonstration showcasing this vision. The platform does not handle financial transactions, and the verification status shown is illustrative of the intended model. Always conduct your own due diligence before making a donation.
+                </p>
+            </div>
+        </article>
+    </main>
+
+     <!-- Footer -->
+     <footer class="bg-gray-900 text-gray-400 py-10 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>© <span id="current-year-about"></span> DonateNow. All rights reserved.</p>
+             <p class="text-sm mt-2">A conceptual platform for transparent and informed giving.</p>
+             <p class="text-xs text-gray-500 mt-4">Disclaimer: This site is a demonstration. Verification process is illustrative. Favorites stored locally.</p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript File (mainly for Nav Highlighting) -->
+    <script src="js/main.js"></script>
+     <script>
+        // Update footer year for this page specifically
+        const yearSpanAbout = document.getElementById('current-year-about');
+        if (yearSpanAbout) {
+          yearSpanAbout.textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>

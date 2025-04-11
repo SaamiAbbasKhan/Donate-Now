@@ -1,0 +1,33 @@
+/* css/style.css */
+
+/* Apply base font family */
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased; /* Improve font rendering */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optional: Style for minimum height on specific sections if needed */
+.hero-min-height {
+  min-height: calc(100vh - 160px); /* Adjust based on actual header/footer height */
+}
+
+/* Base Tooltip CSS (Tailwind handles the rest in utility classes) */
+.tooltip .tooltiptext {
+  visibility: hidden; /* Start hidden */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Show tooltip on hover */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Optional: Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- NO TAILWIND DIRECTIVES LIKE @apply HERE --- */

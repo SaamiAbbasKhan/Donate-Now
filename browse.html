@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Organizations - DonateNow</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Link to standard CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Inline styles for specific button states -->
+    <style>
+        /* Add small transition to filter buttons */
+        .filter-btn {
+            transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+        }
+         /* Style for favorite button icon */
+        .favorite-btn svg {
+            transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+         .favorite-btn:hover svg {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors">
+                DonateNow
+            </a>
+            <div class="flex items-center space-x-2 sm:space-x-4">
+                <a href="index.html" class="px-3 py-2 text-sm sm:text-base text-gray-600 hover:text-gray-900 transition-colors duration-200">Home</a>
+                <a href="browse.html" class="px-3 py-2 text-sm sm:text-base font-semibold text-blue-600">Browse</a>
+                <a href="process.html" class="px-3 py-2 text-sm sm:text-base text-gray-600 hover:text-gray-900 transition-colors duration-200">Process</a>
+                <a href="about.html" class="px-3 py-2 text-sm sm:text-base text-gray-600 hover:text-gray-900 transition-colors duration-200">About</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Explore Verified Organizations</h1>
+
+        <!-- Filter Controls Bar -->
+        <!-- *** REMOVED sticky top-[65px] z-40 FROM THE CLASS LIST BELOW *** -->
+        <div class="mb-8 bg-white p-4 sm:p-6 rounded-lg shadow border border-gray-200">
+            <!-- Search & Sort Row -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                <div>
+                    <label for="search-input" class="block text-xs font-medium text-gray-500 mb-1 uppercase tracking-wider">Search</label>
+                    <input type="text" id="search-input" placeholder="Organization, keyword, focus..." class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-300 focus:border-blue-400 transition">
+                </div>
+                <div>
+                    <label for="sort-select" class="block text-xs font-medium text-gray-500 mb-1 uppercase tracking-wider">Sort By</label>
+                    <select id="sort-select" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-300 focus:border-blue-400 bg-white appearance-none transition">
+                        <option value="name-asc">Name (A-Z)</option>
+                        <option value="name-desc">Name (Z-A)</option>
+                        <option value="verified-desc">Recently Verified</option>
+                        <option value="favorites">Favorites First</option>
+                    </select>
+                </div>
+                <div class="flex items-end">
+                     <button id="clear-filters-btn" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-medium py-2 px-4 rounded-md shadow-sm transition-colors duration-200">
+                        Clear Filters
+                    </button>
+                 </div>
+            </div>
+
+             <!-- Dynamic Filters Row -->
+            <div class="border-t border-gray-200 pt-4">
+                <div class="mb-3">
+                    <h4 class="text-xs font-medium text-gray-500 mb-2 uppercase tracking-wider">Filter by Category:</h4>
+                    <div id="category-filters" class="flex flex-wrap -mb-2">
+                         <span class="text-gray-500 italic text-sm py-1">Loading...</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xs font-medium text-gray-500 mb-2 uppercase tracking-wider">Filter by Region:</h4>
+                     <div id="region-filters" class="flex flex-wrap -mb-2">
+                        <span class="text-gray-500 italic text-sm py-1">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Area -->
+        <div id="organizations-list-area" class="mt-8 min-h-[400px]">
+            <!-- Loading State -->
+             <div id="loading-indicator" class="text-center py-16 hidden">
+                <svg class="animate-spin h-8 w-8 text-blue-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                 </svg>
+                 <p class="text-gray-500 mt-2">Loading organizations...</p>
+             </div>
+            <!-- No Results State -->
+             <div id="no-results" class="text-center py-16 hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-400 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 10.343c-.088.044-.18.08-.275.113a3.986 3.986 0 00-5.136 5.136c.032.095.069.187.113.275" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.657 13.657c.088-.044.18-.08.275-.113a3.986 3.986 0 015.136-5.136c-.032-.095-.069-.187-.113-.275" />
+
+                </svg>
+                <p class="text-lg font-semibold text-gray-700">No Organizations Found</p>
+                <p class="text-gray-500 mt-1">Try adjusting your search or filters.</p>
+             </div>
+             <!-- Organizations Grid -->
+             <div id="organizations-list" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                 <!-- Organization cards will be dynamically injected here -->
+             </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+     <footer class="bg-gray-900 text-gray-400 py-10 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>© <span id="current-year-browse"></span> DonateNow. All rights reserved.</p>
+             <p class="text-sm mt-2">A conceptual platform for transparent and informed giving.</p>
+             <p class="text-xs text-gray-500 mt-4">Disclaimer: This site is a demonstration. Verification process is illustrative. Favorites stored locally.</p>
+        </div>
+    </footer>
+
+    <!-- Load Data First -->
+    <script src="data/organizations.js"></script>
+    <!-- Main JavaScript File -->
+    <script src="js/main.js"></script>
+     <script>
+        const yearSpanBrowse = document.getElementById('current-year-browse');
+        if (yearSpanBrowse) {
+          yearSpanBrowse.textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>
